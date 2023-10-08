@@ -1,0 +1,33 @@
+{
+  "name": "my-space",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:Empty": "vue serve ./src/components/Empty/test.vue",
+    "test:Avatar": "vue serve ./src/components/Avatar/test.vue",
+    "test:Icon": "vue serve ./src/components/Icon/test.vue",
+    "test:Pages": "vue serve ./src/components/Pages/test.vue",
+    "test:ImageLoader": "vue serve ./src/components/ImageLoader/test.vue",
+    "test:Contact": "vue serve ./src/components/SiteAside/Contact/test.vue",
+    "test:Menu": "vue serve ./src/components/SiteAside/Menu/test.vue",
+    "test:SiteAside": "vue serve ./src/components/SiteAside/test.vue",
+    "test:Layout": "vue serve ./src/components/Layout/test.vue",
+    "test:Loading": "vue serve ./src/components/Loading/test.vue"
+  },
+  "dependencies": {
+    "axios": "^1.5.1",
+    "core-js": "^3.8.3",
+    "mockjs": "^1.1.0",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "less": "^4.2.0",
+    "less-loader": "^7.3.0",
+    "vue-template-compiler": "^2.6.14"
+  }
+}
