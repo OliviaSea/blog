@@ -10,23 +10,28 @@ export default [
       component:Home
     },
     {
-        name:"Blog",
+      name:"Blog",
       path:'/blog',
       component:Blog
     },
     {
-        name:"Project",
+    path:'/blog/cate/:categoryId',
+    name:"CategoryBlog",
+    component:Blog
+  },
+    {
+      name:"Project",
       path:'/project',
       component:Project
     },
     {
-        name:"About",
+      name:"About",
       path:'/about',
       component:About
     },
     {
-        name:"Message",
+      name:"Message",
       path:'/message',
-      component:Message
+      component:Message//匹配到留言页
     }
   ]

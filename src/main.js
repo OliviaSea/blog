@@ -16,13 +16,13 @@ new Vue({
   render:(h)=>h(App),
 }).$mount("#app");
 
-import * as blogApi from "./api/blog";
-// blogApi.getBlog(10,20,3).then(request =>{
-//    console.log(1,r);
+// import * as blogApi from "./api/blog";
+// blogApi.getBlog(10,20,3).then(r =>{
+//    console.log("博客分类",r);
 // })
-blogApi.getBlogTypes().then(r =>{
-   console.log("博客",r);
-}).catch(function(error){
-  console.log(error);
-}
-)
+// blogApi.getBlogTypes().then(r =>{
+//    console.log("博客类型",r);
+// }).catch(function(error){
+//   console.log(error);
+// }
+// )

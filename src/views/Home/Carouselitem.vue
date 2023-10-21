@@ -71,7 +71,7 @@ export default {
     window.addEventListener("resize", this.setSize);
   },
   destroyed() {
-    window.removeEventListener("resize", this.resize);
+    window.removeEventListener("resize", this.setSize);
   },
   methods: {
     showWords() {
