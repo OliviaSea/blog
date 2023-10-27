@@ -24,7 +24,7 @@ Mock.mock(/^\/api\/blog(\?.+)?$/,"get",function(option){
                 [`rows|${query.limit || 10}`]:[
                 {
                     id:"@guid",
-                    title:"@cname",
+                    title:"@ctitle(1,60)",
                     description:"@cparagraph",
                     category: { 
                         "id|1-10": 0,
@@ -32,7 +32,7 @@ Mock.mock(/^\/api\/blog(\?.+)?$/,"get",function(option){
                     },
                     "scanNumber|0-2000": 0,
                     "commentNumber|0-200": 30,
-                    thumb: Mock.Random.image( "300*250", "lightblue","red","picture" ),
+                    "thumb|1":[ Mock.Random.image( "180x150", "#00bce4","#fff","picture" ),null],
                     createDate: `@datetime('yyyy-MM-dd A HH:mm:ss')`
                  }],
                

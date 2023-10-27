@@ -1,5 +1,5 @@
 <template>
-  
+  <h1>BlogCategory</h1>
 </template>
 
 <script>
