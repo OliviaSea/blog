@@ -22,7 +22,9 @@ export default {
     },
     methods: {
         handleChang(item) {
+          if(!item.isSelect){
             this.$emit("Selected", item);
+          }
         }
     }
 }
@@ -35,6 +37,7 @@ export default {
         li{
             list-style: none;
             padding: 0;
+            font-size: 14px;
             margin-left: 15px;
             min-height: 40px;
             line-height: 40px;

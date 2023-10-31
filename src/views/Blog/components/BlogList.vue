@@ -1,5 +1,5 @@
 <template>
-    <div class="blog-list-container" v-loading="isLoading">
+    <div class="blog-list-container" ref="container" v-loading="isLoading">
       <ul>
         <li v-for="item in data.rows" :key="item.id">
           <div class="thumb" v-if="item.thumb">
@@ -28,9 +28,10 @@
         </li>
       </ul>
       <!-- 分页放到这里 -->
-      <Pages v-if="data.total" :current="routeInfo.page" 
+      <Pages v-if="data.total" 
+      :current= "routeInfo.page "
       :total="data.total" 
-      :limit="routeInfo.limit"
+      :limit= "routeInfo.limit"
       :visibleNumber="10"
       @pageChange="handlePageChange"
        
@@ -48,9 +49,9 @@ export default{
   },
   computed:{
     routeInfo(){
-      const categoryId = this.$route.params.categoryId || -1;
-      const page = this.$route.query.page || 1;
-      const limit = this.$route.query.limit || 10;
+      const categoryId = +this.$route.params.categoryId || -1;
+      const page = +this.$route.query.page || 1;
+      const limit = +this.$route.query.limit || 10;
       return {
         categoryId,
         page,
@@ -87,6 +88,14 @@ export default{
         })
       }
     }
+  },
+  watch:{
+    async $route(){
+      this.isLoading = true;
+      this.$refs.container.scrollTop = 0
+     this.data = await this.fetchData();
+     this.isLoading = false;
+    }
   }
 }
 </script>
@@ -96,10 +105,11 @@ export default{
     line-height: 1.7;
     position: relative;
     padding: 20px;
-    overflow-y: auto;
+    overflow-y: scroll;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    scroll-behavior: smooth;//平滑滚动
     ul {
       list-style: none;
       margin: 0;
