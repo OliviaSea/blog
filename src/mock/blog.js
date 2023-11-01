@@ -40,3 +40,11 @@ Mock.mock(/^\/api\/blog(\?.+)?$/,"get",function(option){
         }
     )
 })
+Mock.mock("/api/blog/:id","get",{
+    code:0,
+    msg:"",
+    data:{
+        "id|+1":1,
+        title:""
+    }
+})

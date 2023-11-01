@@ -1,14 +1,15 @@
 <template>
- <div class="blogCategory" v-loading="isLoading">
+ <div class="blog-category-container" v-loading="isLoading">
     <h2>文章分类</h2>
-  <RightList :list="list" @Selected="handleSelected"/>
+  <RightList :list="list" @Selected="handleSelect"/>
  </div>
 </template>
 
 <script>
+import RightList from './RightList.vue';
 import fetchData from '@/mixins/fetchData';
 import { getBlogTypes } from '@/api/blog';
-import RightList from './RightList.vue';
+
 export default {
   mixins:[fetchData([])],
   components:{
@@ -23,15 +24,17 @@ export default {
     },
   list(){
     const totalCount = this.data.reduce(
-      (a,b) => a.articleCount + b.articleCount,0
+      (a,b) => a + b.articleCount,0
     );
     const result = [
       {name :"全部",id:-1,articleCount:totalCount},
       ...this.data,
+      
     ];
     return result.map((item)=>({
       ...item,
-      isSelected : item.id === this.categoryId
+      isSelect : item.id === this.categoryId,
+      aside:`${item.articleCount}篇`,
     }))
   }
   }
@@ -40,24 +43,24 @@ export default {
     async fetchData(){
       return await getBlogTypes();
     },
-    handleSelected(item){
+    handleSelect(item){
       const query = {
         page : 1,
         limit : this.limit
       }
-      if(this.routeInfo.categoryId === -1){
+      if(item.id === -1){
           this.$router.push({
             name:"Blog",
             query
-          })
+          }).catch(err => err);
       }else{
         this.$router.push({
           name:"CategoryBlog",
           query,
           params:{
-            categoryId:this.routeInfo.categoryId
+            categoryId:item.id
           }
-        })
+        }).catch(err => err);
       }
     }
   }
@@ -67,19 +70,20 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .blogCategory{
+  .blog-category-container{
     position: relative;
     width: 300px;
-    height: 100%;
+    height: 740px;
     box-sizing: border-box;
     padding: 20px;
-
+    overflow-y: auto;
  
     h2{
+      font-weight: bold;
     margin: 0;
     font-size: 1em;
     letter-spacing: 2px;
-    font-weight: bold;
+    
   }
   }
 

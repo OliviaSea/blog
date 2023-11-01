@@ -3,6 +3,7 @@
     <ul>
         <li  v-for="(item ,i) in list" :key="i">
         <span @click="handleChang(item)" :class="{active:item.isSelect}">{{ item.name }}</span>
+        <span v-if="item.aside" @click="handleChang(item)"  class="aside" :class="{active:item.isSelect}">{{ item.aside }}</span>
         <RightList :list="item.children" @Selected="handleChang"/>
         </li>
         
@@ -48,6 +49,12 @@ export default {
         }
         .active{
             color: @warn;
+        }
+        .aside{
+            font-weight: bold;
+            font-size: 12px;
+            color: @gray;
+            margin-left: 1em;
         }
     }
 </style>
