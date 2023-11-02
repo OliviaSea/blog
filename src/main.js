@@ -26,3 +26,8 @@ new Vue({
 //   console.log(error);
 // }
 // )
+// import * as blogApi from "./api/blog";
+
+// blogApi.getComments("sjhgdhjsgh").then(r=>{
+//   console.log(r);
+// })

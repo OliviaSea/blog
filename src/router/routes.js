@@ -3,6 +3,7 @@ import Blog from "@/views/Blog";
 import About from "@/views/About";
 import Project from "@/views/Project";
 import Message from "@/views/Message";
+import BlogDetail from "@/views/Blog/Detail";
 export default [
     { 
       name:"Home",
@@ -18,6 +19,11 @@ export default [
     path:'/blog/cate/:categoryId',
     name:"CategoryBlog",
     component:Blog
+  },
+    {
+    path:'/blog/:id',
+    name:"BlogDetail",
+    component:BlogDetail
   },
     {
       name:"Project",
