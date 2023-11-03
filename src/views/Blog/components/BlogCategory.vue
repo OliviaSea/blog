@@ -1,7 +1,7 @@
 <template>
  <div class="blog-category-container" v-loading="isLoading">
     <h2>文章分类</h2>
-  <RightList :list="list" @Selected="handleSelect"/>
+  <RightList :list="list" @Selected="handleSelect" />
  </div>
 </template>
 
@@ -71,15 +71,14 @@ export default {
 
 <style lang="less" scoped>
   .blog-category-container{
+    height: 100%;
     position: relative;
     width: 300px;
-    height: 740px;
     box-sizing: border-box;
     padding: 20px;
     overflow-y: auto;
- 
     h2{
-      font-weight: bold;
+    font-weight: bold;
     margin: 0;
     font-size: 1em;
     letter-spacing: 2px;
