@@ -2,6 +2,7 @@
   <Layout>
     <div class="detailContainer" v-loading="isLoading">
     <BlogDetail :blog="data" v-if="data"/>
+    <BlogComment v-if="!isLoading"/>
 </div>
  <template v-slot:right>
  <div class="right">
@@ -18,13 +19,15 @@ import DetailCategory from './components/DetailCategory.vue';
 import Layout from '@/components/Layout';
 import fetchData from '@/mixins/fetchData';
 import { getBlogId } from '@/api/blog';
+import BlogComment from './components/BlogComment.vue';
 export default {
   mixins:[fetchData({})],
   components:{
     BlogDetail,
     DetailCategory,
-    Layout
-  },
+    Layout,
+    BlogComment
+},
   methods:{
     async fetchData(){
       return await getBlogId(this.$route.params.id);
