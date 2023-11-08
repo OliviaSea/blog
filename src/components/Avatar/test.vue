@@ -1,11 +1,11 @@
 <template>
   <div class="app-container">
     <Avatar 
-    src="https://picsum.photos/200"
+    src="http://mdrs.yuanjin.tech/img/image-20200421152122793.png"
     :size="100"
     />
     <Avatar 
-    src="https://picsum.photos/seed/picsum/200"
+    src="http://mdrs.yuanjin.tech/img/image-20200421152122793.png"
     :size="150"
     />
   </div>

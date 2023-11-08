@@ -16,18 +16,21 @@ new Vue({
   render:(h)=>h(App),
 }).$mount("#app");
 
-// import * as blogApi from "./api/blog";
-// blogApi.getBlog(10,20,3).then(r =>{
-//    console.log("博客分类",r);
-// })
-// blogApi.getBlogTypes().then(r =>{
-//    console.log("博客类型",r);
-// }).catch(function(error){
-//   console.log(error);
-// }
-// )
-// import * as blogApi from "./api/blog";
 
-// blogApi.getComments("sjhgdhjsgh").then(r=>{
-//   console.log(r);
-// })
+
+import eventBus from "./eventBus";
+function handle1(data){
+  console.log(data,"handle1");
+}
+function handle2(data){
+  console.log(data,"handle2");
+}
+function handle3(data){
+  console.log(data,"事件移除了");
+}
+eventBus.$on("event1",handle1)
+eventBus.$on("event2",handle2)
+eventBus.$on("event1",handle3)
+window.eventBus = eventBus;
+window.handle1 = handle1;
+window.handle3 = handle3;
